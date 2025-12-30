@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAME</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
+
+  <div class="text-center p-4 shadow rounded bg-white" style="max-width: 400px; width: 90%;">
+    <h2 class="mb-4">What is your name kup</h2>
+
+    <form id="nameForm">
+      <input type="text" class="form-control mb-3" placeholder="Name" id="username" required>
+
+      <div class="text-center my-3">
+        <button type="submit" class="btn btn-primary w-100">Next</button>
+      </div>
+    </form>
+
+    <div id="greeting" class="mt-4" style="display: none;">
+      <h4>welcome <span id="displayName"></span>!</h4>
+    </div>
+
+
+  <script>
+    const form = document.getElementById('nameForm');
+    const greeting = document.getElementById('greeting');
+    const displayName = document.getElementById('displayName');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('username').value.trim();
+      if(name) {
+        displayName.textContent = name;
+        greeting.style.display = 'block';     
+        localStorage.setItem('username', name);
+        window.location.href = 'page3.html';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
